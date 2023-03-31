@@ -6,11 +6,11 @@ import { BiError, BiShareAlt } from "react-icons/bi";
 
 const HomePage = (props: Props) => {
   return (
-    <div className="flex flex-col items-center justify-center h-screen px-2 text-white">
+    <div className="flex flex-col items-center justify-center h-full md:h-screen px-2 text-white">
       <h1 className="text-5xl font-bold  mb-20">ChatGPT</h1>
-      <div className="flex items-center justify-center space-x-8 space-y-6">
+      <div className="flex flex-col md:flex-row items-center justify-center space-x-2 space-y-6">
         <div className="w-[230px] h-[314px]">
-          <div className="flex flex-col items-center space-y-2">
+          <div className="flex flex-col items-center space-y-2 mb-2">
             <BsSun size={30} />
             <p className="text-xl">Examples</p>
           </div>
@@ -27,7 +27,7 @@ const HomePage = (props: Props) => {
           </div>
         </div>
         <div className="w-[230px] h-[314px]">
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center mb-2">
             <AiOutlineThunderbolt size={30} />
             <p>Capabilities</p>
           </div>
@@ -40,7 +40,7 @@ const HomePage = (props: Props) => {
           </div>
         </div>
         <div className="w-[230px] h-[314px]">
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center mb-2">
             <BiError size={30} />
             <p>Limitations</p>
           </div>
