@@ -15,9 +15,15 @@ const HomePage = (props: Props) => {
             <p className="text-xl">Examples</p>
           </div>
           <div className="">
-            <p className="card">"Explain quantum computing in simple terms" &rarr;</p>
-            <p className='card'>"Got any creative ideas for a 10 ear old's birthday?"&rarr;</p>
-            <p className="card">"How do I make an HTTP request in JavaScript"&rarr;</p>
+            <p className="card">
+              "Explain quantum computing in simple terms" &rarr;
+            </p>
+            <p className="card">
+              "Got any creative ideas for a 10 ear old's birthday?"&rarr;
+            </p>
+            <p className="card">
+              "How do I make an HTTP request in JavaScript"&rarr;
+            </p>
           </div>
         </div>
         <div className="w-[230px] h-[314px]">
@@ -26,7 +32,9 @@ const HomePage = (props: Props) => {
             <p>Capabilities</p>
           </div>
           <div>
-            <p className="card">Remembers what user said earlier in the conversation</p>
+            <p className="card">
+              Remembers what user said earlier in the conversation
+            </p>
             <p className="card">Allows user to provide follow-up corrections</p>
             <p className="card">Trained to decline inappropriate requests</p>
           </div>
@@ -40,7 +48,7 @@ const HomePage = (props: Props) => {
             <p className="card">
               May occasionally generate incorrect information
             </p>
-            <p className="card">
+            <p className="card text-sm">
               May occasionally produce harmful instructions or biased content
             </p>
             <p className="card">
@@ -49,8 +57,8 @@ const HomePage = (props: Props) => {
           </div>
         </div>
       </div>
-      <div className="flex border p-2 rounded-md">
-        <BiShareAlt size={30} />
+      <div className="flex border p-1  items-center justify-center rounded-md">
+        <BiShareAlt size={20} />
         <p>share</p>
       </div>
     </div>
