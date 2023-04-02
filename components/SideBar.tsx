@@ -13,7 +13,7 @@ const SideBar = (props: Props) => {
         </div>
         <div className='flex items-center'>
             <BiComment />
-            <p>chat</p>
+            <p>chatt</p>
         </div>
     </div>
   )
