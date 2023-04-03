@@ -11,9 +11,9 @@ const SideBar = (props: Props) => {
             <p className='text-gray-200'>New Chat</p>
 
         </div>
-        <div className='flex items-center'>
+        <div className='flex items-center px-2'>
             <BiComment />
-            <p>chatt</p>
+            <p>chat</p>
         </div>
     </div>
   )
