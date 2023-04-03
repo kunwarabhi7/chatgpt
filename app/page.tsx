@@ -1,3 +1,4 @@
+import React from "react";
 type Props = {};
 
 import { BsSun } from "react-icons/bs";
