@@ -3,7 +3,7 @@ import "@/styles/globals.css";
 import { getServerSession } from "next-auth";
 
 import React from "react";
-import {authOptions} from '../pages/api/auth/[...nextauth]'
+import { authOptions } from "../pages/api/auth/[...nextauth]";
 import SessionProvider from "@/components/SessionProvider";
 import Login from "@/components/Login";
 export const metadata = {
@@ -15,21 +15,23 @@ export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
-}) 
-
-{
-  const session = await getServerSession(authOptions)
+}) {
+  const session = await getServerSession(authOptions);
+  console.log(session?.user?.name)
   return (
     <html lang="en">
       <body>
         <SessionProvider session={session}>
-          {!session ? <Login /> :  <div className="flex">
-          {/* SideBar  */}
-          <SideBar />
-          {/* ClientProvider  */}
-          <div className="bg-[#343541]  flex-1">{children}</div>
-        </div>
-       }
+          {!session ? 
+            <Login />
+          : 
+            <div className="flex">
+              {/* SideBar  */}
+              <SideBar />
+              {/* ClientProvider  */}
+              <div className="bg-[#343541]  flex-1">{children}</div>
+            </div>
+          }
         </SessionProvider>
       </body>
     </html>

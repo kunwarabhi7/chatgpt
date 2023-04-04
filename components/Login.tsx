@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import React from "react";
+import { signIn } from "next-auth/react";
 
 type Props = {};
 
@@ -14,7 +15,7 @@ const Login = (props: Props) => {
         width={300}
         height={300}
       />
-      <button className="text-white text-4xl font-bold">Sign in To use CHATGPT!!</button>
+      <button onClick={()=>signIn('google')} className="text-white text-4xl font-bold animate-pulse">Sign in To use CHATGPT!!</button>
     </div>
   );
 };
