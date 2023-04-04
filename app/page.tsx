@@ -1,9 +1,8 @@
 import React from "react";
-type Props = {};
-
 import { BsSun } from "react-icons/bs";
 import { AiOutlineThunderbolt } from "react-icons/ai";
 import { BiError, BiShareAlt } from "react-icons/bi";
+type Props = {};
 
 const HomePage = (props: Props) => {
   return (
