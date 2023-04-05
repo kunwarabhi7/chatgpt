@@ -1,12 +1,12 @@
-
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
 @layer components {
   .card {
-@apply    h-16 text-center bg-[#3E3F4B] hover:bg-[#202123] cursor-pointer mb-2 p-1 rounded-md
+    @apply h-16 text-center bg-[#3E3F4B] hover:bg-[#202123] cursor-pointer mb-2 p-1 rounded-md;
+  }
+  .chat{
+    @apply flex items-center px-2  text-gray-200 cursor-pointer
   }
 }

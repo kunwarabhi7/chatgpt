@@ -20,11 +20,9 @@ const NewChat = (props: Props) => {
     router.push(`/chat/${doc.id}`);
   };
   return (
-    <div onClick={createNewChat} className="flex items-center px-2 cursor-pointer">
-        
-        <HiPlusSm size={20}  />
-         
-            <p className='text-gray-200'>New Chat</p>
+    <div onClick={createNewChat} className="chat">
+      <HiPlusSm size={20} />
+      <p>New Chat</p>
     </div>
   );
 };
