@@ -10,7 +10,7 @@ const ChatRow = ({id}: Props) => {
   return (
     <Link href={   `chat/${id}`} className='chat space-x-3'>
         <CiChat1 />
-       <h1 className='truncate'> ChatRow is my name you got this??</h1>
+       <h1 className='truncate'> ChatRow is my name you got this?</h1>
         <FcEmptyTrash />
         </Link>
   )
