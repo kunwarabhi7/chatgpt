@@ -1,6 +1,8 @@
 "use client";
+import { db } from "@/utils/firebase";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { useSession } from "next-auth/react";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { TbSend } from "react-icons/tb";
 
 type Props = { Chatid: string };
@@ -8,9 +10,55 @@ type Props = { Chatid: string };
 const ChatInput = ({ Chatid }: Props) => {
   const { data: session } = useSession();
   const [prompt, setPrompt] = useState("");
+
+  // useSwr to get Modal
+const modal = 'text-davinci-modal-003';
+  const sendMessage = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!prompt) return;
+    const input = prompt.trim();
+    setPrompt("");
+
+    const message: Message = {
+      text: input,
+      createdAt: serverTimestamp(),
+      user: {
+        _id: session?.user?.email!,
+        name: session?.user?.name!,
+        avatar:
+          session?.user?.image! ||
+          `https://ui-avatars.com/api/?name=${session?.user?.name}`,
+      },
+    };
+    await addDoc(
+      collection(
+        db,
+        "users",
+        session?.user?.email!,
+        "chats",
+        Chatid,
+        "messages"
+      ),
+      message
+    );
+    // Add Toast
+    await fetch('/api/askQuestion',{
+      method: 'POST',
+      headers:{
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        prompt:input,session,Chatid,modal
+      })
+    })
+  };
+
   return (
     <div className="rounded-lg text-sm mb-2">
-      <form className="flex bg-[#40414F] flex-row p-2  md:mx-32">
+      <form
+        onSubmit={sendMessage}
+        className="flex bg-[#40414F] flex-row p-2  md:mx-32"
+      >
         <input
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
