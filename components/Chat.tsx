@@ -1,10 +1,12 @@
 import React from 'react'
 
-type Props = {}
+type Props = {
+    Chatid:string
+}
 
-const Chat = (props: Props) => {
+const Chat = ({Chatid}: Props) => {
   return (
-    <div>Chat</div>
+    <div className='flex-1'>Chat</div>
   )
 }
 

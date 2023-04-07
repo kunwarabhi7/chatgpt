@@ -2,14 +2,19 @@ import Chat from '@/components/Chat'
 import ChatInput from '@/components/ChatInput'
 import React from 'react'
 
-type Props = {}
+type Props = {
+  params:{
+    id:string
+  }
+}
 
-const page = (props: Props) => {
+const page = ({params:{id}}: Props) => {
+  console.log(id)
   return (
-    <div className='text-white h-screen'>
+    <div className='text-white h-screen flex flex-col overflow-hidden'>
       <Chat />
 <ChatInput />
-      Chat Page</div>
+      </div>
   )
 }
 

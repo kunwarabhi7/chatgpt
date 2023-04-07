@@ -32,7 +32,7 @@ const ChatRow = ({ id }: Props) => {
   return (
     <Link
       href={`chat/${id}`}
-      className={`chat space-x-3 ${active && "bg-gray-400/50"}`}
+      className={`chat space-x-3 ${active && "bg-gray-400/50 w-32 md:w-64"}`}
     >
       <CiChat1 />
       <h1 className="truncate">
