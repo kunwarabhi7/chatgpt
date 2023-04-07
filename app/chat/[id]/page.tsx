@@ -9,11 +9,11 @@ type Props = {
 }
 
 const page = ({params:{id}}: Props) => {
-  console.log(id)
+  
   return (
     <div className='text-white h-screen flex flex-col overflow-hidden'>
-      <Chat />
-<ChatInput />
+      <Chat Chatid={id} />
+<ChatInput Chatid={id}/>
       </div>
   )
 }

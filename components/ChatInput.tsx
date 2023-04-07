@@ -4,6 +4,7 @@ import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { useSession } from "next-auth/react";
 import { FormEvent, useState } from "react";
 import { TbSend } from "react-icons/tb";
+import toast from 'react-hot-toast';
 
 type Props = { Chatid: string };
 
@@ -41,7 +42,8 @@ const modal = 'text-davinci-modal-003';
       ),
       message
     );
-    // Add Toast
+    //  Toast loading
+  const notification = toast.loading('ChatGPT is thinking....')
     await fetch('/api/askQuestion',{
       method: 'POST',
       headers:{
@@ -50,6 +52,10 @@ const modal = 'text-davinci-modal-003';
       body: JSON.stringify({
         prompt:input,session,Chatid,modal
       })
+    }).then(()=>{
+toast.success('chatGPT is responded',{
+  id:notification
+})
     })
   };
 
