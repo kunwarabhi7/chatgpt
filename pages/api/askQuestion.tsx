@@ -1,12 +1,11 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import { query } from "firebase/firestore";
 import type { NextApiRequest, NextApiResponse } from "next";
 import admin from "firebase-admin";
+import query from "@/lib/queryApi";
 import { adminDb } from "@/utils/firebaseAdmin";
 
 type Data = {
   answer: string;
-  text:string;
 };
 
 export default async function handler(
@@ -37,8 +36,10 @@ export default async function handler(
   await adminDb
     .collection("users")
     .doc(session?.user?.email!)
+    .collection("chats")
     .doc(chatid)
     .collection("messages")
     .add(message);
-  res.status(200).json({ answer: "John Doe" });
+
+  res.status(200).json({ answer: message.text });
 }
